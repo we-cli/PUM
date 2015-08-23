@@ -1,0 +1,30 @@
+{
+  "name": "pum",
+  "version": "0.0.1",
+  "decription": "Shell Process Manager: PUM",
+  "tags": [
+    "pm",
+    "spawn",
+    "shell",
+    "command",
+    "process",
+    "manager"
+  ],
+  "repository": "git@github.com:frtix/PUM.git",
+  "main": "lib/pum.js",
+  "bin": {
+    "pum": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "shell-quote": "^1.4.3",
+    "tree-kill": "^0.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "supertest": "^1.0.1"
+  }
+}
