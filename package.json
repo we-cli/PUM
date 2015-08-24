@@ -1,6 +1,6 @@
 {
   "name": "pum",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "decription": "Shell Process Manager: PUM",
   "tags": [
     "pm",
@@ -11,6 +11,7 @@
     "manager"
   ],
   "repository": "git@github.com:fritx/PUM.git",
+  "license": "MIT",
   "main": "lib/pum.js",
   "bin": {
     "pum": "bin/cli.js"
