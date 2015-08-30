@@ -22,4 +22,14 @@ function respond(args){
       if (err) throw err
     })
   }
+
+  else if (action === 'restart') {
+    var pid = parseInt(values[0])
+    if (isNaN(pid)) {
+      return console.error('Invalid PID')
+    }
+    pum.restart(pid, function (err) {
+      if (err) throw err
+    })
+  }
 }
