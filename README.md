@@ -4,11 +4,13 @@
 
 - [x] Cross-Platform: Windows & Unix
 - [x] Terminal CLI & node.js API
-- [x] Start & Stop & Restart
-- [ ] List & Log
+- [x] Start & Stop & Restart & List
+- [ ] Log & Watch
 - [ ] Save & Resurrect
 - [ ] Autostart on boot
 - [ ] Auto-restart on crash
+
+<img src="https://raw.githubusercontent.com/fritx/PUM/dev/pic/pum-list.jpg" width="494" height="181">
 
 ```plain
 ## for terminal CLI

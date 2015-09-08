@@ -1,6 +1,6 @@
 {
   "name": "pum",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "decription": "Shell Process Manager: PUM",
   "tags": [
     "pm",
@@ -20,6 +20,7 @@
     "test": "mocha"
   },
   "dependencies": {
+    "cli-table": "^0.3.1",
     "lodash": "^3.10.1",
     "nedb": "^1.1.3",
     "shell-quote": "^1.4.3",
