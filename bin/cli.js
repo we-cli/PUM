@@ -67,13 +67,14 @@ function respond(args){
           , 'middle': ' '
         }
       }
+      // fixme: (win32) CJK char & `…` causes extra text indent
       var table = new Table(options)
       table.push.apply(table, docs.map(function (doc) {
         return [
           doc.pid,
           // todo: cut the middle with `...` for readability
-          (doc.opt.cwd + sep).replace(userHome + sep, '~' + sep),
-          doc.cmd
+          (doc.opt.cwd + sep).replace(userHome + sep, '~' + sep).slice(0, -1),
+          '$ ' + doc.cmd
         ]
       }))
       console.log(table.toString())
