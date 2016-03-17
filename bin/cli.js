@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 var Table = require('cli-table')
+// var Table = require('cli-table2')
 var userHome = require('user-home')
+var sep = require('path').sep
 var args = process.argv.slice(2)
+var isWin32 = process.platform === 'win32'
 var PUM = require('../').PUM
 var pum = new PUM()
 
@@ -38,21 +41,39 @@ function respond(args){
   else if (action === 'list') {
     pum.list(function (err, docs) {
       if (err) throw err
-      /*var output = docs.map(function (doc) {
-        return [
-          doc.pid, doc.cmd,
-          doc.opt.cwd.replace(userHome + '/', '~/')
-        ].join('\t\t')
-      }).join('\n')
-      console.log(output)*/
-      var table = new Table({
-        head: ['pid', 'command', 'cwd'],
-        colWidths: [10, 24, 24]
-      })
+      var options = {
+        head: ['pid', 'cwd', 'command'],
+        // colWidths: [10, 24, 24]
+        colWidths: [10, 26, 34],
+      }
+      // note: table display not right in window8 and linux #77
+      // https://github.com/Automattic/cli-table/issues/77
+      if (isWin32) {
+        options.chars = {
+            'top': ' '
+          , 'top-mid': ' '
+          , 'top-left': ' '
+          , 'top-right': ' '
+          , 'bottom': ' '
+          , 'bottom-mid': ' '
+          , 'bottom-left': ' '
+          , 'bottom-right': ' '
+          , 'left': ' '
+          , 'left-mid': ' '
+          , 'mid': ' '
+          , 'mid-mid': ' '
+          , 'right': ' '
+          , 'right-mid': ' '
+          , 'middle': ' '
+        }
+      }
+      var table = new Table(options)
       table.push.apply(table, docs.map(function (doc) {
         return [
-          doc.pid, doc.cmd,
-          doc.opt.cwd.replace(userHome + '/', '~/')
+          doc.pid,
+          // todo: cut the middle with `...` for readability
+          (doc.opt.cwd + sep).replace(userHome + sep, '~' + sep),
+          doc.cmd
         ]
       }))
       console.log(table.toString())

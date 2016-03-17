@@ -33,6 +33,8 @@ var prc = pum.start('mongod --dbpath xxx')
 pum.stop(prc.pid, function(e, doc){/**/})
 ```
 
+- [x] Pretty CLI table output by [cli-table](https://github.com/Automattic/cli-table)
+- [x] Program data persistence via [nedb](https://github.com/louischatriot/nedb)
 - [x] Deadly process kill via [tree-kill](https://github.com/pkrumins/node-tree-kill)
 - [x] Start without prompts in Windows using [invisible.vbs](https://github.com/marklagendijk/node-pm2-windows-startup/blob/master/invisible.vbs) (Interesting..)
 - [x] Shell command quoted with [shell-quote](https://github.com/substack/node-shell-quote)
